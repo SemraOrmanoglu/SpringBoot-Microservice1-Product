@@ -6,6 +6,7 @@ import com.sha.product.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -39,6 +40,7 @@ public class ProductService extends AbstractProductService
     @Override
     public Product save(Product entity) {
         try {
+            entity.setCreated(new Date());
             return productRepository.save(entity);
         }
         catch (IllegalArgumentException e)
